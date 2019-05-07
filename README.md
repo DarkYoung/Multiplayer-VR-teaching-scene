@@ -1,4 +1,7 @@
 ## 目录结构
+  `-`表示展开目录 
+  `+`表示不展开
+
 ```
 - Multiplayer-VR-Teaching-Scene
     - dist                  # webpack编译打包输出目录，由webpack根据配置文件自动生成（无需关注）
