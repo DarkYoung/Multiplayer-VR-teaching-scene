@@ -9,6 +9,10 @@
         + img               # 生成的图片资源
         + js                # 生成的脚本
         *.html              # 生成的页面
+    + lib                   # art-template模板引擎
+    - routes                # 路由，按功能模块划分
+        index.js            # 首页路由
+        *.js                # 其他（如用户相关）
     - src                   # 项目开发目录，重点关注的地方
         - app               # 脚本文件，按照页面（page）、组件（component）进行组织
             + components    # 组件，每个子目录都是一个组件，包含对应的css、js、html
@@ -30,5 +34,7 @@
     .gitignore              # 配置需要排除在版本管理控制之外的文件
     package.json            # 项目配置
     README.md               # 项目说明
+    app.js                  # express 配置文件
+    server.js               # 服务器（本地）脚本
     webpack.config.js       # webpack配置文件
 ```
