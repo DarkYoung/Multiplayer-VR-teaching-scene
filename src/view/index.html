@@ -10,17 +10,19 @@
 
 <body>
   {{include './common/header.html'}}
-  <div class="g-hd"></div>
-  <div class="g-bd">
-    <input type="button" value="弹窗" class="btn" />
-    <!-- <span class="btn">弹窗</span> -->
-    <p class="img">
-    </p>
-  </div>
-  <div class="g-ft"></div>
-  <!--
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{{application}}</h1>
+      <p>{{description}}</p>
+      <p><a class="btn btn-primary btn-lg" href="/user/login" role="button">开始</a></p>
+      <div class="g-ft"></div>
+    </div>
+
+    <!--
         描述：body中同样无需单独引入JS文件，webpack会根据入口JS文件自动实现按需加载或者生成script标签，还可以生成对应的hash值
 	-->
+  </div>
   {{include './common/footer.html'}}
 </body>
 

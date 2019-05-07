@@ -34,54 +34,63 @@ var config = {
   module: {
     // 加载器，关于各个加载器的参数配置
     rules: [{
-      test: /\.css$/,
-      // 配置css的抽取器、加载器。
-      use: extractCSS.extract({
-        use: [{
-            loader: 'css-loader'
-          },
-          {
-            loader: 'resolve-url-loader'
-          }
-        ],
-        fallback: 'style-loader'
-      })
-    }, {
-      test: /\.less$/,
-      // 配置less的抽取器、加载器。
-      use: extractCSS.extract({
-        use: [{
-            loader: 'css-loader'
-          },
-          {
-            loader: 'resolve-url-loader'
-          },
-          {
-            loader: 'less-loader'
-          }
-        ],
-        fallback: 'style-loader'
-      })
-    }, {
-      // html模板加载器，可以处理引用的静态资源，默认配置参数attrs=img:src，处理图片的src引用的资源
-      // 比如你配置，attrs=img:src img:data-src就可以一并处理data-src引用的资源了，就像下面这样
-      test: /\.html$/,
-      use: 'html-loader?attrs=img:src img:data-src'
-    }, {
-      // 文件加载器，处理文件静态资源
-      test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      use: 'file-loader?name=./fonts/[name].[ext]'
-    }, {
-      // 图片加载器，雷同file-loader，更适合图片，可以将较小的图片转成base64，减少http请求
-      // 如下配置，将小于8192byte的图片转成base64码
-      test: /\.(png|jpg|gif)$/,
-      use: 'url-loader?limit=8192&name=./img/[hash].[ext]'
-    }]
+        test: /\.css$/,
+        // 配置css的抽取器、加载器。
+        use: extractCSS.extract({
+          use: [{
+              loader: 'css-loader'
+            },
+            {
+              loader: 'resolve-url-loader'
+            }
+          ],
+          fallback: 'style-loader'
+        })
+      }, {
+        test: /\.less$/,
+        // 配置less的抽取器、加载器。
+        use: extractCSS.extract({
+          use: [{
+              loader: 'css-loader'
+            },
+            {
+              loader: 'resolve-url-loader'
+            },
+            {
+              loader: 'less-loader'
+            }
+          ],
+          fallback: 'style-loader'
+        })
+      }, {
+        // html模板加载器，可以处理引用的静态资源，默认配置参数attrs=img:src，处理图片的src引用的资源
+        // 比如你配置，attrs=img:src img:data-src就可以一并处理data-src引用的资源了，就像下面这样
+        test: /\.html$/,
+        use: 'html-loader?attrs=img:src img:data-src'
+      }, {
+        // 文件加载器，处理文件静态资源
+        test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: 'file-loader?name=./fonts/[name].[ext]'
+      }, {
+        // 图片加载器，雷同file-loader，更适合图片，可以将较小的图片转成base64，减少http请求
+        // 如下配置，将小于8192byte的图片转成base64码
+        test: /\.(png|jpg|gif)$/,
+        use: 'url-loader?limit=8192&name=./img/[hash].[ext]'
+      }
+      // ,
+      // {
+        // test: require.resolve('jquery'),
+        // use: 'expose-loader?$!expose-loader?jQuery'
+      // }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(), // 每次构建项目清除 dist 文件夹
     new webpack.ProvidePlugin({ // 加载jq
-      $: 'jquery'
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.$': 'jquery',
+      'window.jQuery': 'jquery'
     }),
     new SplitChunksPlugin({
       name: 'vendors', // 将公共模块提取，生成名为`vendors`的chunk
@@ -96,7 +105,7 @@ var config = {
   devServer: {
     contentBase: './dist/',
     host: 'localhost',
-    port: 9090,
+    port: 3000,
     inline: true,
     hot: true
   }
