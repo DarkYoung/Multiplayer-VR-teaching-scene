@@ -22,9 +22,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 
 
-app.set("views", path.join(__dirname, 'dist')); //设置视图文件根路径
-// app.use('/static', express.static(path.join(__dirname, 'dist'))); // 设置根路径
-app.use('/', routes);
+app.set("views", path.join(__dirname, 'dist')); // 设置视图文件根路径
+app.use(express.static(path.join(__dirname, 'dist'))); // 设置静态文件（css、js等）根路径
+app.use('/', routes); // 设置路由
 
 // 404页面
 app.use(function (req, res, next) {

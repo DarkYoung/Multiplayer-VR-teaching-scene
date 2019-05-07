@@ -13,6 +13,15 @@ router.get('/', function (req, res, next) {
   //   res.send('<h1>' + webTitle + '</h1>');
 });
 
+router.get('/index', function (req, res, next) {
+  // 第一个参数是要渲染的页面
+  res.render('index', {
+    title: '首页-' + webTitle,
+    pageNav: 'index'
+  });
+  //   res.send('<h1>' + webTitle + '</h1>');
+});
+
 // 加载关于页面
 router.get('/about', function (req, res, next) {
   res.render('about', {
