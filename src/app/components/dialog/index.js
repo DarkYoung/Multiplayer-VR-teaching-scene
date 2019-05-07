@@ -1,7 +1,7 @@
 // 加载模块css
-require('./css/dialog.less');
+require('./dialog.less');
 // 加载html模板
-const html = require('./tmpl/dialog.html');
+const html = require('./dialog.html');
 
 // 导出模块
 module.exports = function (){

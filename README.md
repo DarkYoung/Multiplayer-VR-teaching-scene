@@ -15,7 +15,12 @@
             + lib           # 导入的样式文件
             + page          # 入口页面相关的样式文件
         + img               # 图片资源
-        + view              # HTML模板
+        - view              # HTML模板
+            - common        # 公共HTML模板
+                header.html # 
+                footer.html # 
+                *.html      # 其他公共HTML模板
+            *.html          # 其他HTML模板
     + node_modules          # 使用到的nodejs模块
     .editorconfig           # 给编辑器看的配置文件，无需管理
     .eslintrc.js            # 代码规范检查
