@@ -27,7 +27,7 @@ var config = {
   entry: entries,
   output: {
     path: path.resolve(__dirname, 'dist'), // 输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
-    //publicPath: '/',       // 模板、样式、脚本、图片等资源对应的server上的路径
+    // publicPath: '/static/',       // 模板、样式、脚本、图片等资源对应的server上的路径
     filename: 'js/[name].js', // 每个页面对应的主js的生成配置
     chunkFilename: 'js/[name].chunk.js?[chunkhash]' // chunk生成的配置
   },
@@ -106,8 +106,8 @@ var config = {
 const pages = Object.keys(getEntry('src/view/**/*.html', 'src/view/'));
 pages.forEach(function (pathname) {
   var conf = { // 根据模板插入css/js等生成最终HTML
-    filename: './view/' + pathname + '.html', // 生成的html存放路径，相对于path
-    template: './src/view/'+pathname+'.html', // html模板路径
+    filename: './' + pathname + '.html', // 生成的html存放路径，相对于path
+    template: './src/view/' + pathname + '.html', // html模板路径
     inject: false, // js插入的位置，true/'head'/'body'/false
     hash: true, // 为静态资源生成hash值
     minify: { // 压缩HTML文件
@@ -115,7 +115,7 @@ pages.forEach(function (pathname) {
       collapseWhitespace: false // 删除空白符与换行符
     }
   };
-  if(pathname in config.entry){
+  if (pathname in config.entry) {
     // conf.favicon: './src/img/favicon.ico'; // favicon路径，通过webpack引入同时可以生成hash值
     conf.inject = 'body';
     conf.chunks = ['vendors', pathname]; // 需要引入的chunk，不配置就会引入所有页面的资源
@@ -137,7 +137,7 @@ function getEntry(globPath, pathDir) {
     basename = path.basename(entry, extname);
     pathname = path.normalize(path.join(dirname, basename));
     pathDir = path.normalize(pathDir);
-    if(pathname.startsWith(pathDir)){
+    if (pathname.startsWith(pathDir)) {
       pathname = pathname.substring(pathDir.length);
     }
     entries[pathname] = ['./' + entry];
