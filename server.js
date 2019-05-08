@@ -1,7 +1,9 @@
-const app = require('./app');
+const app = require('./server.app'); //express服务器
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
+const host = '127.0.0.1';
+const port = 55555;
 io.on('connection', function (socket) {
   console.log('client ' + socket.id + ' connected');
   socket.on('disconnect', function () {
@@ -23,6 +25,6 @@ io.on('connection', function (socket) {
   })
 });
 
-http.listen(3000, function () {
-  console.log('listening on *:3000');
+http.listen(port, function () {
+  console.log('listening on ' + host + ':' + port);
 });

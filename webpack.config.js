@@ -85,7 +85,7 @@ var config = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(), // 每次构建项目清除 dist 文件夹
+    // new CleanWebpackPlugin(), // 每次构建项目清除 dist 文件夹
     new webpack.ProvidePlugin({ // 加载jq
       $: 'jquery',
       jQuery: 'jquery',

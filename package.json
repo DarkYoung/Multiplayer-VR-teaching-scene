@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server --open --config webpack.config.js",
-    "server": "node server"
+    "server": "node server",
+    "debug": "node debug.server"
   },
   "repository": {
     "type": "git",
@@ -53,9 +54,11 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
     "express-art-template": "^1.0.1",
+    "http-proxy-middleware": "^0.19.1",
     "inline-source-map": "^0.6.2",
     "morgan": "^1.9.1",
     "popper.js": "^1.15.0",
+    "querystring": "^0.2.0",
     "socket.io": "^2.2.0"
   }
 }
