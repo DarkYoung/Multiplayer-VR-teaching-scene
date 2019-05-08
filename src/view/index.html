@@ -9,21 +9,25 @@
 </head>
 
 <body>
-  {{include './common/header.html'}}
-
-  <div class="jumbotron">
-    <div class="container">
-      <h1>{{application}}</h1>
-      <p>{{description}}</p>
-      <p><a class="btn btn-primary btn-lg" href="/user/login" role="button">开始</a></p>
-      <div class="g-ft"></div>
-    </div>
-
-    <!--
+  <header class="header">
+    {{include './common/header.html'}}
+  </header>
+  <section id="main">
+    <main class="main">
+      <article role="article">
+        <div>
+          <div id="splash"></div>
+        </div>
+      </article>
+    </main>
+  </section>
+  <!--
         描述：body中同样无需单独引入JS文件，webpack会根据入口JS文件自动实现按需加载或者生成script标签，还可以生成对应的hash值
 	-->
   </div>
-  {{include './common/footer.html'}}
+  <footer>
+    {{include './common/footer.html'}}
+  </footer>
 </body>
 
 </html>

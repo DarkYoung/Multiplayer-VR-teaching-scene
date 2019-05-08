@@ -6,7 +6,7 @@ module.exports = (function () {
   //render渲染器调用，会调用art-template模块中的template.__express方法，并传入模板文件名和数据
   let renderIndex = function (req, res, next) {
     // 第一个参数是要渲染的页面
-    res.render('index.html', {
+    res.render('index', {
       title: '首页-' + webTitle,
       pageNav: 'index',
       application: "多人VR教学式场景",

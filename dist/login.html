@@ -3,26 +3,24 @@
 
 <head>
   {{include './common/meta.html'}}
-<link href="css/login.css?ead78cb53ba04a827950" rel="stylesheet"></head>
+<link href="css/login.css?db2e4bb6493c6104ef8c" rel="stylesheet"></head>
 
 <body>
-  {{include './common/header.html'}}
-  <div class="container">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">用户名</button>
-      </span>
-      <input type="text" class="form-control" aria-label="...">
-    </div>
-
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">密码</button>
-      </span>
-      <input type="text" class="form-control" aria-label="...">
-    </div>
-  </div>
-  {{include './common/footer.html'}}
-<script type="text/javascript" src="js/login.js?ead78cb53ba04a827950"></script></body>
+  <header class="header">
+    {{include './common/header.html'}}
+  </header>
+  <section id="main">
+    <main class="main">
+      <article role="article">
+        <div>
+          <div id="login"></div>
+        </div>
+      </article>
+    </main>
+  </section>
+  <footer>
+    {{include './common/footer.html'}}
+  </footer>
+<script type="text/javascript" src="js/login.js?db2e4bb6493c6104ef8c"></script></body>
 
 </html>
