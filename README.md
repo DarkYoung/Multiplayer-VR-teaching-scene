@@ -34,7 +34,10 @@
     .gitignore              # 配置需要排除在版本管理控制之外的文件
     package.json            # 项目配置
     README.md               # 项目说明
+    debug.server.js         # 本地代理服务器脚本（热加载、将请求转发到服务器端）
     app.js                  # express 配置文件
     server.js               # 服务器（本地）脚本
+    server.app.js           # 服务器端（运行在本地，监听不同端口）对应的express脚本
+    model.js                # 数据库（保存在内存中）
     webpack.config.js       # webpack配置文件
 ```
