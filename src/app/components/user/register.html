@@ -1,0 +1,35 @@
+<section class="component component-login">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-0 col-lg-12">
+        <div class="component-login-wrapper">
+          <form id="user-login-form" method="POST" accept-charset="UTF-8" action="/user/register">
+            <input type="hidden" name="_method" value="POST">
+            <input type="hidden" name="authenticity_token" value="abc">
+            <div class="g12 clear">
+              <div class="g7 nest">
+                <h2 class="flavor-text mb10">创建一个账号</h2>
+                <p class="fw400 mb0">如果你有可用账号，请<a href="/user/login" class="cn">登录～</a>.</p>
+              </div>
+            </div>
+            <div class="g12 clear">
+              <div class="g12 nest mb10">
+                <label for="component-login-id">用户名</label>
+                <input id="component-login-id" type="text" class="req ok"></div>
+              <div class="g12 nest mb10">
+                <label for="component-login-password">密码</label>
+                <input id="component-login-password" type="password" class="req ok">
+              </div>
+            </div>
+            <div class="g12">
+              <div class="component-login__buttons">
+                <input type="submit" name="commit" value="注册" class="btn bg-gr">
+                <input type="button" value="已有账号？" class="btn bg-md outlined ml10">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

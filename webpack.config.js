@@ -27,7 +27,7 @@ var config = {
   entry: entries,
   output: {
     path: path.resolve(__dirname, 'dist'), // 输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
-    // publicPath: '/static/',       // 模板、样式、脚本、图片等资源对应的server上的路径
+    publicPath: '/static/',       // 模板、样式、脚本、图片等资源对应的server上的路径
     filename: 'js/[name].js', // 每个页面对应的主js的生成配置
     chunkFilename: 'js/[name].chunk.js?[chunkhash]' // chunk生成的配置
   },
@@ -79,13 +79,13 @@ var config = {
       }
       // ,
       // {
-        // test: require.resolve('jquery'),
-        // use: 'expose-loader?$!expose-loader?jQuery'
+      // test: require.resolve('jquery'),
+      // use: 'expose-loader?$!expose-loader?jQuery'
       // }
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin(), // 每次构建项目清除 dist 文件夹
+    new CleanWebpackPlugin(), // 每次构建项目清除 dist 文件夹
     new webpack.ProvidePlugin({ // 加载jq
       $: 'jquery',
       jQuery: 'jquery',
@@ -125,7 +125,7 @@ pages.forEach(function (pathname) {
     }
   };
   if (pathname in config.entry) {
-    // conf.favicon: './src/img/favicon.ico'; // favicon路径，通过webpack引入同时可以生成hash值
+    conf.favicon = './src/img/favicon.ico'; // favicon路径，通过webpack引入同时可以生成hash值
     conf.inject = 'body';
     conf.chunks = ['vendors', pathname]; // 需要引入的chunk，不配置就会引入所有页面的资源
     // chunksSortMode: 'dependency';

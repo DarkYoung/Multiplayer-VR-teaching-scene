@@ -21,14 +21,14 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 
 app.set("views", path.join(__dirname, 'dist')); // 设置视图文件根路径
-app.use(express.static(path.join(__dirname, 'dist'))); // 设置静态文件（css、js等）根路径
+app.use("/static", express.static(path.join(__dirname, 'dist'))); // 设置静态文件（css、js等）根路径
 app.use('/user', require('./routes/user')); // 设置用户相关路由
 // 设置/usr路径的静态文件路径，不设置就会在导入的静态文件前加上/user，导致找不到文件
-app.use('/user', express.static(path.join(__dirname, 'dist')));
+// app.use('/user', express.static(path.join(__dirname, 'dist')));
 app.use('/game', require('./routes/game')); // 设置VR游戏相关路由
-app.use('/game', express.static(path.join(__dirname, 'dist')));
+// app.use('/game', express.static(path.join(__dirname, 'dist')));
 app.use('/', require('./routes/index')); // 设置首页路由
-app.use('/', express.static(path.join(__dirname, 'dist')));
+// app.use('/', express.static(path.join(__dirname, 'dist')));
 // 404页面
 app.use(function (req, res, next) {
   let err = new Error("Not Found");

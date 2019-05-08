@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	{{include './common/meta.html'}}
+  {{include './common/meta.html'}}
 </head>
+
 <body>
-	{{include './common/header.html'}}
-	<div class="g-hd"></div>
-	<div class="g-bd">
-		<div id="about"></div>
-	</div>
-	<div class="g-ft"></div>
-	{{include './common/footer.html'}}
+  <header class="header">
+    {{include './common/header.html'}}
+  </header>
+  <section id="main">
+    <main class="main">
+      <article role="article">
+        <div>
+          <div id="about"></div>
+        </div>
+      </article>
+    </main>
+  </section>
+  <footer>
+    {{include './common/footer.html'}}
+  </footer>
 </body>
+
 </html>
