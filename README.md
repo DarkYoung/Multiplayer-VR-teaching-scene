@@ -45,3 +45,23 @@
     model.js                # 数据库（保存在内存中）
     webpack.config.js       # webpack配置文件
 ```
+
+## 使用
+
+> 前提：安装node、npm
+
+```
+~$ git clone https://github.com/DarkYoung/Multiplayer-VR-teaching-scene.git
+~$ cd Multiplayer-VR-teaching-scene
+~$ npm install      # 安装nodejs模块
+~$ npm run build    # 编译生成dist目录
+~$ npm run server   # 启动express服务器，在浏览器访问：<http://localhost:3000/>
+```
+
+#### 可选：
+
+注释掉配置文件`webpack.config.js`中的`    new CleanWebpackPlugin(), // 每次构建项目清除 dist 文件夹`
+
+```
+~$ npm run debug    # 本地debug模式，支持热加载（目前还有问题。。。），在浏览器访问：<http://localhost:9090>
+```
