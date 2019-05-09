@@ -1,4 +1,7 @@
 .idea
+# 编译后会自动生成，不需要版本控制
+dist/
+
 # Logs
 logs
 *.log
