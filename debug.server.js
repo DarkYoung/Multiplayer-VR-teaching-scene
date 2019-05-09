@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
-const serverPort = 55555;
+const serverPort = 3000;
 const devPort = 9090;
 
 for (let i in config.entry) {

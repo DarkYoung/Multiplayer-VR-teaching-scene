@@ -3,7 +3,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 const host = '127.0.0.1';
-const port = 55555;
+const port = 3000;
 io.on('connection', function (socket) {
   console.log('client ' + socket.id + ' connected');
   socket.on('disconnect', function () {
