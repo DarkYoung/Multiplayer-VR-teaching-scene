@@ -12,22 +12,26 @@
     + lib                   # art-template模板引擎
     - routes                # 路由，按功能模块划分
         index.js            # 首页路由
-        *.js                # 其他（如用户相关）
+        user.js             # 用户相关（登录、注册等）路由
+        game.js             # 游戏相关路由
     - src                   # 项目开发目录，重点关注的地方
         - app               # 脚本文件，按照页面（page）、组件（component）进行组织
             + components    # 组件，每个子目录都是一个组件，包含对应的css、js、html
-            + page          # 入口脚本
+            + page          # 入口脚本（重要！！！一个页面对应一个脚本）
         - css               # 主要样式文件
             + common        # 公共使用的样式文件
             + lib           # 导入的样式文件
             + page          # 入口页面相关的样式文件
-        + img               # 图片资源
+        - assets            # 资源文件
+            + models        # three.js相关模型
+            + textures      # three.js相关纹理
+            *.*             # 其他资源（图片、图标等）
         - view              # HTML模板
             - common        # 公共HTML模板
                 header.html # 
                 footer.html # 
                 *.html      # 其他公共HTML模板
-            *.html          # 其他HTML模板
+            *.html          # HTML模板（一般情况下是入口的HTML模板，即每个入口对应一个HTML）
     + node_modules          # 使用到的nodejs模块
     .editorconfig           # 给编辑器看的配置文件，无需管理
     .eslintrc.js            # 代码规范检查
