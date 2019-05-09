@@ -77,6 +77,10 @@ var config = {
         // 如下配置，将小于8192byte的图片转成base64码
         test: /\.(png|jpg|gif)$/,
         use: 'url-loader?limit=8192&name=./img/[hash].[ext]'
+      }, {
+        // 模型
+        test:/\.(glb)$/,
+        use: 'file-loader?name=./models/[name].[ext]'
       }
       // ,
       // {
@@ -126,7 +130,7 @@ pages.forEach(function (pathname) {
     }
   };
   if (pathname in config.entry) {
-    conf.favicon = './src/img/favicon.ico'; // favicon路径，通过webpack引入同时可以生成hash值
+    conf.favicon = './src/assets/favicon.ico'; // favicon路径，通过webpack引入同时可以生成hash值
     conf.inject = 'body';
     conf.chunks = ['vendors', pathname]; // 需要引入的chunk，不配置就会引入所有页面的资源
     // chunksSortMode: 'dependency';

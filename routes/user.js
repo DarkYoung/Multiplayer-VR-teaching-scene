@@ -26,7 +26,10 @@ router.get('/login', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   console.log('id:' + req.body.id);
   console.log('password:' + req.body.password);
-  res.send("登录成功，5s后自动返回首页～<a href='/index'>点击立即返回</a>");
+  setTimeout(function (response) {
+    response.redirect('/game');
+  }, 1000, res);
+  // res.send("登录成功，5s后自动返回首页～<a href='/game'>点击立即返回</a>");
   // const {
   //   user,
   //   pwd
@@ -99,7 +102,10 @@ router.post('/register', function (req, res) {
   //     })
   //   })
   // })
-  res.send("注册成功，10s后自动返回首页～<a href='/index'>点击立即返回</a>")
+  setTimeout(function (response) {
+    response.redirect('/game');
+  }, 2000, res);
+  // res.send("注册成功，5s后自动返回首页～<a href='/game'>点击立即返回</a>");
 });
 
 router.get('/info', (req, res, next) => {
