@@ -1,3 +1,9 @@
+/*
+ * @Author: JasonZhang 
+ * @Date: 2019-05-10 11:30:13 
+ * @Last Modified by:   JasonZhang 
+ * @Last Modified time: 2019-05-10 11:30:13 
+ */
 const app = require('./server.app'); //express服务器
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
@@ -16,7 +22,7 @@ io.on('connection', function (socket) {
     socket.broadcast.emit('offline', {
       socketid: socket.id
     });
-  })
+  });
 });
 
 http.listen(port, function () {

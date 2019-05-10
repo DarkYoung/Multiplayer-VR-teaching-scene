@@ -1,3 +1,9 @@
+/*
+ * @Author: JasonZhang 
+ * @Date: 2019-05-10 11:26:27 
+ * @Last Modified by:   JasonZhang 
+ * @Last Modified time: 2019-05-10 11:26:27 
+ */
 // 加载模块css
 require('./dialog.less');
 // 加载html模板
