@@ -2,7 +2,7 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-08 14:19:19 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-09 16:40:03
+ * @Last Modified time: 2019-05-10 12:23:19
  */
 body {
   margin: 0;
@@ -222,6 +222,20 @@ a {
   color: #ffffff;
 }
 
+.btn-raise {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+
+  &:hover {
+    box-shadow: 0 3px 9px 1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+  }
+
+  &:active {
+    box-shadow: 0 5px 10px -1px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
+  }
+}
+
+
 .bg-gr {
   background-color: #8ac249;
 }
@@ -237,6 +251,14 @@ a {
   line-height: 32px;
   line-height: 2rem;
   font-weight: 400;
+}
+
+.link-raise {
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+
+  &:hover {
+    box-shadow: 0 3px 9px 1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+  }
 }
 
 .gw {
