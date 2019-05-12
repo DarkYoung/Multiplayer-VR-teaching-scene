@@ -1,8 +1,8 @@
 /*
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:26:15 
- * @Last Modified by:   JasonZhang 
- * @Last Modified time: 2019-05-10 11:26:15 
+ * @Last Modified by: JasonZhang
+ * @Last Modified time: 2019-05-12 21:44:15
  */
 const THREE = require('three');
 
@@ -11,6 +11,9 @@ module.exports = (function () {
   const KEY_S = 83;
   const KEY_A = 65;
   const KEY_D = 68;
+  const KEY_SPACE = 32;
+
+  var velocity = new THREE.Vector3();
 
   function FirstPersonControls(camera, domElement) {
     this.domElement = domElement || document.body;
@@ -35,6 +38,7 @@ module.exports = (function () {
     this.moveBackward = false;
     this.moveLeft = false;
     this.moveRight = false;
+    this.canJump = false;
   }
 
   FirstPersonControls.prototype = {
@@ -75,6 +79,11 @@ module.exports = (function () {
         case KEY_D:
           this.moveRight = true;
           break;
+        case KEY_SPACE:
+          if (canJump === true)
+            velocity.y += 350;
+          this.jump = false;
+          break;
       }
     },
 
@@ -110,12 +119,25 @@ module.exports = (function () {
         direction.normalize();
       }
 
+      // velocity.x -= velocity.x * 10.0 * delta;
+      // velocity.z -= velocity.z * 10.0 * delta;
+      velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
+
+      // if (moveForward || moveBackward) velocity.z -= direction.z * 400.0 * delta;
+      // if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta;
+
       // 移动距离等于速度乘上间隔时间delta
       if (this.moveForward || this.moveBackward) {
         this.yawObject.translateZ(moveSpeed * direction.z * delta);
       }
       if (this.moveLeft || this.moveRight) {
         this.yawObject.translateX(moveSpeed * direction.x * delta);
+      }
+      this.pitchObject.position.y += (velocity.y * delta);
+      if(this.pitchObject.position.y < 10){
+        velocity.y = 0;
+        this.pitchObject.position.y = 10;
+        canJump = true;
       }
     },
 
