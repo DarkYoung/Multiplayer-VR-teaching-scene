@@ -2,7 +2,7 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:26:15 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-12 23:10:00
+ * @Last Modified time: 2019-05-12 23:30:47
  */
 const THREE = require('three');
 // const Physijs = require('physijs');
@@ -16,10 +16,12 @@ module.exports = (function () {
 
   var velocity = new THREE.Vector3();
 
-  function FirstPersonControls(camera, domElement) {
+  function FirstPersonControls(camera, domElement, blocker) {
     this.domElement = domElement || document.body;
     this.isLocked = false;
     this.camera = camera;
+
+    this.blocker = blocker;
 
     // 初始化camera, 将camera放在pitchObject正中央
     camera.rotation.set(0, 0, 0);
@@ -48,6 +50,11 @@ module.exports = (function () {
     onPointerLockChange: function () {
       console.log(this.domElement);
       this.isLocked = document.pointerLockElement === this.domElement;
+      if (this.isLocked === true) {
+        this.blocker.style.display = 'none';
+      }else{
+        this.blocker.style.display = 'block';
+      }
     },
 
     onPointerLockError: function () {
@@ -106,6 +113,8 @@ module.exports = (function () {
     },
 
     update: function (delta) {
+      if (!this.isLocked)
+        return false;
       // 移动速度
       const moveSpeed = 100;
 

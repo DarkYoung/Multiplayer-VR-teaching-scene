@@ -2,7 +2,7 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:27:15 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-12 23:13:21
+ * @Last Modified time: 2019-05-12 23:42:04
  */
 // 导入css
 require('../../css/lib/reset.css');
@@ -56,7 +56,7 @@ function initView() {
     floor.rotation.x = Math.PI / 2;
     scene.add(floor);
   });
-  fpc = new FirstPersonControls(camera, document.body);
+  fpc = new FirstPersonControls(camera, document.body, document.getElementById('blocker'));
   scene.add(fpc.yawObject);
   socket = io(host + ':' + port);
   duck = model.getModelPath('duck');
@@ -119,7 +119,7 @@ function render() {
   hasMoved = fpc.update(clock.getDelta());
   requestAnimationFrame(render);
   if (hasMoved) {
-    console.log("player");
+    console.log("move");
     emit()
   }
   renderer.render(scene, camera);
