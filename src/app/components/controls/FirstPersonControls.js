@@ -2,7 +2,7 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:26:15 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-12 23:30:47
+ * @Last Modified time: 2019-05-12 23:47:17
  */
 const THREE = require('three');
 // const Physijs = require('physijs');
@@ -155,6 +155,7 @@ module.exports = (function () {
     },
 
     connect: function () {
+      this.blocker.style.display = 'block';
       this.domElement.addEventListener('click', this.domElement.requestPointerLock);
       // 在函数后面添加bind(this)的目的是什么
       document.addEventListener('pointerlockchange', this.onPointerLockChange.bind(this), false);
