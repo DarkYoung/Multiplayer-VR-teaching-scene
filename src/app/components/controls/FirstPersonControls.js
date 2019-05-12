@@ -2,9 +2,10 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:26:15 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-12 21:44:15
+ * @Last Modified time: 2019-05-12 23:10:00
  */
 const THREE = require('three');
+// const Physijs = require('physijs');
 
 module.exports = (function () {
   const KEY_W = 87;
@@ -81,7 +82,7 @@ module.exports = (function () {
           break;
         case KEY_SPACE:
           if (canJump === true)
-            velocity.y += 350;
+            velocity.y += 250;
           this.jump = false;
           break;
       }
@@ -127,18 +128,21 @@ module.exports = (function () {
       // if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta;
 
       // 移动距离等于速度乘上间隔时间delta
+      let translateZ = moveSpeed * direction.z * delta,
+        translateX = moveSpeed * direction.x * delta;
       if (this.moveForward || this.moveBackward) {
-        this.yawObject.translateZ(moveSpeed * direction.z * delta);
+        this.yawObject.translateZ(translateZ);
       }
       if (this.moveLeft || this.moveRight) {
-        this.yawObject.translateX(moveSpeed * direction.x * delta);
+        this.yawObject.translateX(translateX);
       }
       this.pitchObject.position.y += (velocity.y * delta);
-      if(this.pitchObject.position.y < 10){
+      if (this.pitchObject.position.y < 10) {
         velocity.y = 0;
         this.pitchObject.position.y = 10;
         canJump = true;
       }
+      return Math.abs(translateZ) > 0 || Math.abs(translateX) > 0;
     },
 
     connect: function () {

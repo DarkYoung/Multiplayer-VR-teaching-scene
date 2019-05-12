@@ -2,7 +2,7 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:27:15 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-12 21:46:11
+ * @Last Modified time: 2019-05-12 23:13:21
  */
 // 导入css
 require('../../css/lib/reset.css');
@@ -26,6 +26,7 @@ const host = 'vr.darkyoung.cn',
 let clock = new THREE.Clock(),
   playerMap = new Map();
 let camera, renderer, light, fpc, socket, duck;
+let hasMoved = false;
 
 function init() {
   initView();
@@ -77,10 +78,7 @@ function initListener() {
         scene.add(mesh.scene);
         playerMap.set(data.socketid, mesh.scene);
       });
-      socket.emit('player', {
-        position: fpc.yawObject.position,
-        rotation: fpc.yawObject.rotation
-      });
+      emit();
     }
   });
   socket.on('offline', data => {
@@ -118,16 +116,24 @@ function onWindowResize() {
 }
 
 function render() {
-  fpc.update(clock.getDelta());
+  hasMoved = fpc.update(clock.getDelta());
   requestAnimationFrame(render);
+  if (hasMoved) {
+    console.log("player");
+    emit()
+  }
+  renderer.render(scene, camera);
+}
+
+function emit() {
   socket.emit('player', {
     position: fpc.yawObject.position,
     rotation: fpc.yawObject.rotation
   });
-  renderer.render(scene, camera);
 }
 
 // $(document).ready(() => {
 init();
 render();
+emit();
 // });
