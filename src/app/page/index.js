@@ -2,7 +2,7 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:27:19 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-16 14:24:56
+ * @Last Modified time: 2019-05-16 18:52:59
  */
 // 导入css
 require('../../css/lib/reset.css');
@@ -13,7 +13,7 @@ const CanvasNest = require('canvas-nest.js');
 const splash = require('../components/splash/spalsh');
 const entries = require('../components/entry/entry');
 const descText = $(splash).find('#desc_none').html();
-
+const Blocker = require('../components/blocker/blocker');
 const config = {
   color: '102,102,255', // 连线颜色
   pointColor: '153,102,255', // 点的颜色

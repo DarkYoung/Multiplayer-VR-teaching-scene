@@ -2,7 +2,7 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:54:16 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-10 22:14:26
+ * @Last Modified time: 2019-05-16 19:00:43
  */
 
 div {
@@ -20,7 +20,8 @@ div {
   position: relative;
   transition: backgroud-color 1000ms ease;
   cursor: pointer;
-  div {
+
+  &>div:first-child {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -31,10 +32,24 @@ div {
       display: block;
       content: '';
     }
-  }
 
+  }
 }
 
+.entry .entry-desc {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.entry:hover {
+  .entry-desc {
+    display: block;
+  }
+}
 
 
 @media (max-width: 400px) {
@@ -88,7 +103,7 @@ div {
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
   }
 
-  div {
+  &>div:first-child {
     width: 300px;
     height: 225px;
     margin-left: -150px;
@@ -108,7 +123,7 @@ div {
     background-color: #66cddd;
   }
 
-  div {
+  &>div:first-child {
     width: 180px;
     height: 150px;
     margin-left: -60px;
@@ -150,7 +165,7 @@ div {
     background-color: #6379db;
   }
 
-  div {
+  &>div:first-child {
     width: 220px;
     height: 200px;
     margin-left: -110px;
@@ -193,7 +208,7 @@ div {
     background-color: #4affa0;
   }
 
-  div {
+  &>div:first-child {
     width: 224px;
     height: 260px;
     margin-left: -112px;
@@ -215,7 +230,7 @@ div {
     background: #333;
   }
 
-  div {
+  &>div:first-child {
     width: 120px;
     height: 78px;
     margin-left: -60px;
