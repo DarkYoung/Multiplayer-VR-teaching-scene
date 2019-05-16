@@ -2,16 +2,26 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:27:19 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-10 22:15:00
+ * @Last Modified time: 2019-05-16 14:24:56
  */
 // 导入css
 require('../../css/lib/reset.css');
 require('../../css/common/global.less');
 require('../../css/common/header.less');
 require('../../css/page/index.less');
+const CanvasNest = require('canvas-nest.js');
 const splash = require('../components/splash/spalsh');
 const entries = require('../components/entry/entry');
 const descText = $(splash).find('#desc_none').html();
+
+const config = {
+  color: '102,102,255', // 连线颜色
+  pointColor: '153,102,255', // 点的颜色
+  opacity: 0.8, // 透明度
+  zIndex: 2, // canvas 的z-index值
+  count: 150 // 连线的数量
+};
+
 let count = 1;
 
 // 等待输入
@@ -60,4 +70,5 @@ $(document).ready(function () {
       scrollTop: $('#splash').find('.component-splash').height()
     }, 300);
   });
+  new CanvasNest(document.body, config);
 });
