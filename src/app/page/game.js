@@ -2,7 +2,7 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:27:15 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-12 23:42:04
+ * @Last Modified time: 2019-05-18 15:52:44
  */
 // 导入css
 require('../../css/lib/reset.css');
@@ -21,7 +21,7 @@ const VIEW_ANGLE = 45,
   ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT,
   NEAR = 0.3,
   FAR = 1000;
-const host = 'vr.darkyoung.cn',
+const host = '47.102.98.109',
   port = 3000;
 let clock = new THREE.Clock(),
   playerMap = new Map();
