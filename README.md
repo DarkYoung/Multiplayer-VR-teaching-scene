@@ -1,6 +1,6 @@
 <h1 align="center">多人VR教学式场景</h1>
 
-**查看效果：http://vr.darkyoung.cn:3000/**
+**查看效果：[演示地址1](http://47.102.98.109:3000) [演示地址2](http://vr.darkyoung.cn:3000/)**
 
 
 ## 目录结构
