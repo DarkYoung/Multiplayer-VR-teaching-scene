@@ -1,15 +1,15 @@
 /*
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:30:06 
- * @Last Modified by:   JasonZhang 
- * @Last Modified time: 2019-05-10 11:30:06 
+ * @Last Modified by: JasonZhang
+ * @Last Modified time: 2019-05-20 11:20:26
  */
 // epxress 的主要文件，指定模板引擎、视图文件默认路径等
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-// body-parser 是express的post请求中用来获得请求体(请求参数)的一种第三方包
+// body-parser 是 express 的 post 请求中用来获得请求体(请求参数)的一种第三方包
 const bodyParser = require('body-parser');
 
 const app = express();

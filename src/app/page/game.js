@@ -2,17 +2,18 @@
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:27:15 
  * @Last Modified by: JasonZhang
- * @Last Modified time: 2019-05-18 15:52:44
+ * @Last Modified time: 2019-05-22 23:51:23
  */
 // 导入css
-require('../../css/lib/reset.css');
-require('../../css/common/global.less');
-require('../../css/page/game.less');
+require('@/css/lib/reset.css');
+require('@/css/common/global.less');
+require('@/css/page/game.less');
 const THREE = require('three');
 const GLTFLoader = require('three-gltf-loader');
+const JSONLoader = require('three-json-loader');
 const io = require('socket.io-client');
-const FirstPersonControls = require('../components/controls/FirstPersonControls');
-const Model = require('../components/model/Model');
+const FirstPersonControls = require('@/app/components/controls/FirstPersonControls');
+const Model = require('@/app/components/model/Model');
 const model = new Model();
 const scene = new THREE.Scene();
 const SCREEN_WIDTH = window.innerWidth,
@@ -20,12 +21,12 @@ const SCREEN_WIDTH = window.innerWidth,
 const VIEW_ANGLE = 45,
   ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT,
   NEAR = 0.3,
-  FAR = 1000;
+  FAR = 10000;
 const host = '47.102.98.109',
   port = 3000;
 let clock = new THREE.Clock(),
   playerMap = new Map();
-let camera, renderer, light, fpc, socket, duck;
+let camera, renderer, light, fpc, socket, duck, steve;
 let hasMoved = false;
 
 function init() {
@@ -45,12 +46,12 @@ function initView() {
   const textureLoader = new THREE.TextureLoader();
   textureLoader.load(model.getModelPath('floor'), function (texture) {
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(4, 4);
+    texture.repeat.set(40, 40);
     const floorMaterial = new THREE.MeshBasicMaterial({
       map: texture,
       side: THREE.DoubleSide
     });
-    const floorGeometry = new THREE.PlaneGeometry(500, 500, 5, 5);
+    const floorGeometry = new THREE.PlaneGeometry(10000, 10000, 5, 5);
     const floor = new THREE.Mesh(floorGeometry, floorMaterial);
     floor.position.y = 0;
     floor.rotation.x = Math.PI / 2;
@@ -60,6 +61,7 @@ function initView() {
   scene.add(fpc.yawObject);
   socket = io(host + ':' + port);
   duck = model.getModelPath('duck');
+  steve = model.getModelPath('steve');
 }
 
 // 监听事件

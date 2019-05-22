@@ -1,22 +1,23 @@
 /*
  * @Author: JasonZhang 
  * @Date: 2019-05-10 11:26:41 
- * @Last Modified by:   JasonZhang 
- * @Last Modified time: 2019-05-10 11:26:41 
+ * @Last Modified by: JasonZhang
+ * @Last Modified time: 2019-05-22 23:53:44
  */
 const THREE = require('three');
 const red = new THREE.Color(0xff0000);
 const green = new THREE.Color(0x00ff00);
 const blue = new THREE.Color(0x0000ff);
-const px = require('../../../assets/textures/skybox/px.jpg');
-const nx = require('../../../assets/textures/skybox/nx.jpg');
-const py = require('../../../assets/textures/skybox/py.jpg');
-const ny = require('../../../assets/textures/skybox/ny.jpg');
-const pz = require('../../../assets/textures/skybox/pz.jpg');
-const nz = require('../../../assets/textures/skybox/nz.jpg');
+const px = require('@/assets/textures/skybox/px.jpg');
+const nx = require('@/assets/textures/skybox/nx.jpg');
+const py = require('@/assets/textures/skybox/py.jpg');
+const ny = require('@/assets/textures/skybox/ny.jpg');
+const pz = require('@/assets/textures/skybox/pz.jpg');
+const nz = require('@/assets/textures/skybox/nz.jpg');
 const modelGlbMap = {
-  'duck': require('../../../assets/models/duck.glb'),
-  'floor': require('../../../assets/textures/floor/FloorsCheckerboard_S_Diffuse.jpg')
+  'duck': require('@/assets/models/glb/duck.glb'),
+  'floor': require('@/assets/textures/floor/FloorsCheckerboard_S_Diffuse.jpg'),
+  'steve': require('@/assets/models/json/minecraft-steve-threejs/minecraft-steve.json')
 };
 const textureLoader = new THREE.TextureLoader();
 
@@ -56,7 +57,7 @@ module.exports = (function () {
       return new THREE.Mesh(new THREE.SphereGeometry(10, 16, 16), material);
     },
     getSkyBox: function () {
-      const skyBoxGeometry = new THREE.BoxGeometry(500, 500, 500);
+      const skyBoxGeometry = new THREE.BoxGeometry(10000, 10000, 10000);
       // 接下来创建材质并映射到指定图片，设定为只渲染背面（对立方体来说，从外面看到的是正面，从内部看到的是背面）
       const skyBoxMaterial = [
         new THREE.MeshBasicMaterial({

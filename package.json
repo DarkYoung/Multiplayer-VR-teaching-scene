@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/DarkYoung/Multiplayer-VR-teaching-scene#readme",
   "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
     "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
@@ -61,6 +64,7 @@
     "express-art-template": "^1.0.1",
     "http-proxy-middleware": "^0.19.1",
     "inline-source-map": "^0.6.2",
+    "mongodb": "^3.2.5",
     "morgan": "^1.9.1",
     "popper.js": "^1.15.0",
     "querystring": "^0.2.0",
@@ -68,6 +72,7 @@
     "socket.io-client": "^2.2.0",
     "three": "^0.104.0",
     "three-gltf-loader": "^1.104.0",
+    "three-json-loader": "^1.0.0",
     "utility": "^1.16.1"
   }
 }
